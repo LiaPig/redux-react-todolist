@@ -1,0 +1,7 @@
+.todo-item {
+    list-style-type: none;
+}
+
+.delete {
+    float: right;
+}
