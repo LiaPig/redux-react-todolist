@@ -1,8 +1,9 @@
 import React, {useRef, memo} from 'react';
 import './index.css'
+import { createAdd } from '../../actions'
 
 const Control = memo((props) => {
-    const { addTodo } = props
+    const { dispatch } = props
 
     const inputRef = useRef()
 
@@ -15,11 +16,16 @@ const Control = memo((props) => {
             return;
         }
 
-        addTodo({
+        // addTodo({
+        //     id: Date.now(),
+        //     text: newText,
+        //     complete: false
+        // });
+        dispatch(createAdd({
             id: Date.now(),
             text: newText,
             complete: false
-        });
+        }))
 
         inputRef.current.value = '';
         

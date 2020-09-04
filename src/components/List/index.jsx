@@ -3,7 +3,7 @@ import './index.css'
 import TodoItem from './TodoItem'
 
 const List = memo(function List(props) {
-    const { todos, toggleTodo, deleteTodo } = props;
+    const { todos, dispatch } = props;
     return (
         <ul className="list-container">
             {
@@ -14,8 +14,7 @@ const List = memo(function List(props) {
                             id={todo.id}
                             text={todo.text}
                             complete={todo.complete}
-                            toggleTodo={toggleTodo}
-                            deleteTodo={deleteTodo}
+                            dispatch={dispatch}
                         />
                     )
                 })
