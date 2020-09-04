@@ -1,7 +1,7 @@
-import React, {useRef} from 'react';
+import React, {useRef, memo} from 'react';
 import './index.css'
 
-function Control(props) {
+const Control = memo((props) => {
     const { addTodo } = props
 
     const inputRef = useRef()
@@ -38,6 +38,6 @@ function Control(props) {
             </form>
         </div>
     )
-}
+})
 
 export default Control;

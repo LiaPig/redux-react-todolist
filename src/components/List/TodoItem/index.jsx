@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {memo} from 'react';
 import './index.css'
 
-function TodoItem(props) {
+const TodoItem = memo((props) => {
     const { id, text, complete, toggleTodo, deleteTodo } = props;
     return (
         <li className="todo-item">
@@ -11,6 +11,6 @@ function TodoItem(props) {
             <span className="delete" onClick={() => deleteTodo(id)}>x</span>
         </li>
     )
-}
+})
 
 export default TodoItem;

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {memo} from 'react';
 import './index.css'
 import TodoItem from './TodoItem'
 
-function List (props) {
+const List = memo(function List(props) {
     const { todos, toggleTodo, deleteTodo } = props;
     return (
         <ul className="list-container">
@@ -22,6 +22,6 @@ function List (props) {
             }
         </ul>
     )
-}
+})
 
 export default List;
