@@ -11,7 +11,6 @@ function App() {
     const [todos, setTodos] = useState([]);
     const [incrementCount, setIncrementCount] = useState(0);
 
-
     const dispatch = useCallback((action) => {
         // 将所有的state，封装在一个大的 states 对象里，key、value都为state
         const states = {
@@ -23,6 +22,12 @@ function App() {
             todos: setTodos,
             incrementCount: setIncrementCount
         };
+
+        // 判断：如果是异步Action，就做以下操作，做完就return，退出函数，不参与后面的同步Action 的操作
+        if (typeof action === 'function') {
+            action(dispatch, () => states);
+            return;
+        }
 
         // 根据传入的 action，去调用 reducer 函数，获取到返回的修改后的 states 值
         const newStates = reducer(states, action);

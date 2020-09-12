@@ -17,15 +17,13 @@ const Control = memo((props) => {
             return;
         }
 
-        // dispatch(createAdd, {
+        // addTodo({
         //     id: Date.now(),
         //     text: newText,
         //     complete: false
         // });
         addTodo({
-            id: Date.now(),
             text: newText,
-            complete: false
         });
         inputRef.current.value = '';
 
